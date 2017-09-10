@@ -72,9 +72,12 @@ def Go(choice):
         draws += 1
     else:
         raise Exception('Sorry but I\'m not quite sure what happened here. Please try running the program again')
-    for x in range(3,0,-1):
-        time.sleep(1)
-        print(x)
+    time.sleep(1)
+    print(ART['rock'])
+    time.sleep(1)
+    print(ART['paper'])
+    time.sleep(1)
+    print(ART['scissors'])
     time.sleep(1)
     print('\n\n\t',choice,' - ',computerChoice)
     return winner
@@ -93,14 +96,15 @@ def main():
     print('\n\nYou are playing first to 5\n\nEach round you make a selection by choosing one of:\n\n\t- rock\t\t(r)\n\t- paper\t\t(p)\n\t- scissors\t(s)\n\nYou will see the total score after each go.\n\nGood luck!')
 
     while not finish:
-        choice = input('\n\nPlease make a selection ').lower()
+        choice = input('\n\nPlease make a selection \t').lower()
         if choice == 'r' or choice == 'p' or choice == 's' or choice == 'rock' or choice == 'paper' or choice == 'scissors':
             winner = Go(choice)
             if winner == 'you' or winner == 'the computer':
-                print('The winner of that go was ',winner,'\n\nThe score is\n\n\tYou\t',playerScore,' - ',computerScore,'\tComputer')
+                print('\n\nThe winner of that go was ',winner,'\n\nThe score is\n\n\tYou\t',playerScore,' - ',computerScore,'\tComputer')
             elif winner == 'draw':
-                print('That was a draw, please go again\n\nThe score is\n\n\tYou\t', playerScore, ' - ',computerScore, '\tComputer')
+                print('\n\nThat was a draw, please go again\n\nThe score is\n\n\tYou\t', playerScore, ' - ',computerScore, '\tComputer')
         else:
+            print('Invalid Selection\nPlease try again\n')
             pass
         if computerScore == 5:
             finish = True
